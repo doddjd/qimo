@@ -245,3 +245,76 @@
 .project-cont{
   font-size: 14px;
 }
+
+.normal{
+   &-p{
+    font-size: 15px;
+    line-height: 25px;
+    margin:5px;
+    text-align: justify;
+    text-indent: 2em;
+    text-justify: inter-ideograph;
+   }
+   &-title {
+    font-family: Microsoft YaHei;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+  &-img{
+    display:block
+  }
+
+}
+
+.team{
+  &-tree-1{
+    > .title{
+      font-weight: bold;
+    }
+    > .member{
+      display: block;
+      font-size: 14px;
+      margin-left: 30px;
+    }
+  }
+  &-tree-2{
+     margin-left: 30px;
+     font-size: 14px;
+    > .title{
+      font-weight: bold;
+      font-size: 15px;
+    }
+    > .member{
+      display: block;
+      font-size: 14px;
+      margin-left: 30px;
+    }
+  }
+}
+
+.essay{
+  list-style-type: none;
+  &-title{
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+  &-info{
+    font-size: 12px;
+
+  }
+  &-years{
+    border-bottom: 2px #e0e0e0 solid;
+    padding: 10px 0 10px 20px;
+    margin-top: 0;
+  }
+  li{
+    position: relative;
+    em{
+      position: absolute;
+      font-style: normal;
+      left: -1em;
+      font-size: 14px;
+    }
+  }
+}
