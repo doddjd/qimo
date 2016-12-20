@@ -1,0 +1,339 @@
+.jumbotron {
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 0px;
+  padding-top: 5px;
+}
+a {
+  cursor: pointer;
+}
+.chn-title {
+  color: #005825;
+  line-height: 10px;
+  margin-top: 0px;
+  padding-left: 12px;
+  padding-top: 35px;
+  line-height: 1;
+}
+.chn-title p {
+  font-size: 25px;
+  font-weight: bold;
+}
+.eng-title {
+  color: #005825;
+  line-height: 25px;
+  margin-right: -30px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.eng-title p {
+  font-size: 16.46px;
+  font-weight: bold;
+}
+.search-box {
+  margin-left: 30px;
+  padding-top: 12px;
+  margin-bottom: 20px;
+}
+#custom-search-input .search-query {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 5px;
+  border: solid 2px #005825;
+  font-family: Microsoft YaHei;
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-left: 4px \9;
+  padding-left: 6px;
+  padding-right: 3px;
+  padding-right: 4px \9;
+}
+#custom-search-input button {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background: none;
+  border-radius: 3px;
+  border: 0;
+  color: #005825;
+  left: -28px;
+  margin-bottom: 0;
+  margin-top: 2px;
+  padding: 2px 5px;
+  position: relative;
+}
+.blog-masthead {
+  -webkit-box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #005825;
+  box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+.blog-nav {
+  min-height: 50px;
+  margin: auto;
+  text-align: center;
+}
+.blog-nav .active {
+  background-color: #218868;
+  color: #ffffff;
+}
+.blog-nav-item {
+  border-radius: 8px;
+  color: #ffffff;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px 23px 10px 23px;
+  position: relative;
+  margin-top: 2px;
+}
+.blog-nav-item:hover {
+  color: yellow;
+  text-decoration: none;
+}
+.blog-nav-item:focus {
+  color: yellow;
+  text-decoration: none;
+}
+.project-introduction {
+  padding-left: 40px;
+}
+.project-introduction-title {
+  font-family: Microsoft YaHei;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.project-introduction-paragraph {
+  font-size: 15px;
+  line-height: 25px;
+  margin: 5px;
+  text-align: justify;
+  text-indent: 2em;
+  text-justify: inter-ideograph;
+}
+.sidebar {
+  padding-left: 5px;
+  padding-top: 5px;
+}
+.panel-title {
+  font-family: Microsoft YaHei;
+  font-size: 20px;
+  font-weight: bold;
+}
+.panel-body {
+  background-color: #F8F8FF;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+.news-ul {
+  list-style-type: none;
+  padding: 0px 0px;
+}
+.news-ul li {
+  font-size: 15px;
+  line-height: 25px;
+}
+.news-ul a {
+  color: #005825;
+}
+.news-ul span {
+  float: right;
+}
+.notification-ul {
+  list-style-type: none;
+  padding: 0px 0px;
+}
+.notification-ul li {
+  font-size: 15px;
+  line-height: 25px;
+}
+.notification-ul a {
+  color: #005825;
+}
+.notification-ul span {
+  float: right;
+}
+.news-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+}
+.notification-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 80%;
+}
+.more-news {
+  float: right;
+  padding: 17px 15px 10px 15px;
+}
+.more-news a {
+  color: #3C763D;
+  font-size: 14px;
+  font-weight: bold;
+}
+.more-news a:hover {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.more-notifications {
+  float: right;
+  padding: 17px 15px 10px 15px;
+}
+.more-notifications a {
+  color: #A94442;
+  font-size: 14px;
+  font-weight: bold;
+}
+.more-notifications a:hover {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+}
+.page-header {
+  font-family: Microsoft YaHei;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+.coop1,
+.coop2,
+.coop3,
+.coop4 {
+  text-align: center;
+}
+.coop1 {
+  margin-top: 2px;
+}
+.coop2 {
+  margin-top: 10px;
+}
+.coop3 {
+  padding-top: 16px;
+}
+.coop4 {
+  margin-top: 7px;
+}
+.footer {
+  font-size: 13px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.QRcode-reminder {
+  margin-bottom: -10px;
+  margin-left: -9px;
+}
+.project-panel-ul {
+  padding: 0;
+  list-style: none;
+}
+.project-panel-ul .ths-name {
+  font-weight: bold;
+}
+.project-panel-ul .ths-specs {
+  display: block;
+  font-size: 14px;
+  margin-left: 30px;
+}
+.project-cont {
+  font-size: 14px;
+}
+.normal-p {
+  font-size: 15px;
+  line-height: 25px;
+  margin: 5px;
+  text-align: justify;
+  text-indent: 2em;
+  text-justify: inter-ideograph;
+}
+.normal-title {
+  font-family: Microsoft YaHei;
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.normal-img {
+  display: block;
+  width: 86%;
+  margin: 20px auto;
+}
+.normal-part {
+  clear: both;
+}
+.team-tree-1 > .title {
+  font-weight: bold;
+}
+.team-tree-1 > .member {
+  display: block;
+  font-size: 14px;
+  margin-left: 30px;
+}
+.team-tree-2 {
+  margin-left: 30px;
+  font-size: 14px;
+}
+.team-tree-2 > .title {
+  font-weight: bold;
+  font-size: 15px;
+}
+.team-tree-2 > .member {
+  display: block;
+  font-size: 14px;
+  margin-left: 30px;
+}
+.essay {
+  list-style-type: none;
+}
+.essay-title {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+.essay-info {
+  font-size: 12px;
+}
+.essay-years {
+  border-bottom: 2px #e0e0e0 solid;
+  padding: 10px 0 10px 20px;
+  margin-top: 0;
+}
+.essay li {
+  position: relative;
+}
+.essay li em {
+  position: absolute;
+  font-style: normal;
+  left: -1em;
+  font-size: 14px;
+}
+.input-group {
+  margin-bottom: 30px;
+}
+.inline-block {
+  display: inline-block;
+}
+.toEdit {
+  color: #fff!important;
+  float: right;
+}
+.addNew {
+  font-size: 15px;
+  float: right;
+}
+.edit-tpl .input-group {
+  margin-bottom: 10px;
+}
+.login-btn {
+  padding: 7.6px 22px;
+  font-size: 15px;
+  line-height: 1;
+}
+#loginBtnShell {
+  display: inline-block;
+  margin-top: -3px;
+  vertical-align: middle;
+}
+.project-introduction table {
+  font-size: 15px;
+}

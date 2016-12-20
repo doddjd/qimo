@@ -20,10 +20,10 @@
         <div class="row">
         </div>
         <!-- /.sidebar -->
-        <div class="col-sm-12   project-introduction">
+        <div class="col-sm-12 project-introduction">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title">后台管理 <a class="addNew" onclick='addNewInfo(0)'>新建</a></h3>
+                    <h3 class="panel-title">用户后台管理 <a class="addNew" onclick='addNewInfo(0)'>新建</a></h3>
                 </div>
                 <div class="panel-body" id='userMainTplShell'>
                     <div class="bs-example">
@@ -43,19 +43,21 @@
             <thead>
                 <tr>
                     <th>序列</th>
-                    <th>项目名称</th>
-                    <th>项目编号</th>
-                    <th>负责人</th>
+                    <th>帐号</th>
+                    <th>用户名</th>
+                    <th>用户编号</th>
+                    <th>权限等级</th>
                     <th>操作</th>
                 </tr>
             </thead>
             <tbody>
             {{each list as item index}}
                 <tr>
-                    <td>{{index}}</td>
+                    <td>{{index+1}}</td>
                     <td>{{item.account}}</td>
-                    <td>{{item.projectId}}</td>
-                    <td>{{item.leader}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.userId}}</td>
+                    <td>{{item.type}}</td>
                     <td><a onclick=addNewInfo(1,{{item.userId}})>编辑</a>  <a onclick=deleteUser({{item.userId}})>删除</a></td>
                 </tr>
             {{/each}}

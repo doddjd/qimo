@@ -5,6 +5,9 @@
 // fis.match('*', {
 //   useHash: false
 // });
+
+fis.hook('relative');
+
 fis.match('**/*.less', {
     rExt: '.css', // from .less to .css
     parser: fis.plugin('less-2.x', {
@@ -23,3 +26,9 @@ fis.match('**/*.less', {
 // fis.match('*.png', {
 //   optimizer: fis.plugin('png-compressor')
 // });
+
+
+// 让所有文件，都使用相对路径。
+fis.match('**', {
+  relative: true
+})

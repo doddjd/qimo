@@ -1,6 +1,9 @@
+// var host='http://'+document.location.host||'192.168.1.103'
+var host='http://192.168.1.103:8080'
 $(function($) {
 
 
+   
     var data = {
         loginFlag: getCookie('loginUserId') ? 0 : 1,
         list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
@@ -46,8 +49,6 @@ $(function($) {
 
 
     $('#loginBtn').click(function() {
-        // console.log($('#myModal').find("[name='password']").val())
-        console.log(getCookie('loginUserId'))
         var data = {
             account: $('#myModal').find("[name='account']").val(),
             password: md5($('#myModal').find("[name='password']").val())
@@ -55,7 +56,7 @@ $(function($) {
 
         $.ajax({
             type: "POST",
-            url: "/tropical-disease-research/user/login",
+            url: host+"/tropical-disease-research/user/login",
             data: data,
             success: function(msg) {
                 if (msg.status == 1) {
@@ -70,11 +71,53 @@ $(function($) {
 
 });
 
+$('.login-btn').click(function() {
+    var _data = ''
+    var html = template('loginTpl', _data);
+
+
+
+    layer.open({
+        type: 1,
+        skin: 'layui-layer-rim', //加上边框
+        area: ['50%', 'auto'], //宽高
+        content: html,
+        btn: ['保存', '取消'],
+        yes: function(index, layero) {
+            //do something
+            var data = {
+                account: $('#myModal').find("[name='account']").val(),
+                password: md5($('#myModal').find("[name='password']").val())
+            }
+
+            $.ajax({
+                type: "POST",
+                url: host+"/tropical-disease-research/user/login",
+                data: data,
+                success: function(msg) {
+                    if (msg.status == 1) {
+                        var tmp = JSON.parse(msg.data)
+                        setCookie('loginUserId', tmp.loginUserId)
+                        location.reload()
+                    }
+
+                }
+            });
+
+        
+        },
+        no: function(index, layero) {
+            //do something
+            layer.close(index); //如果设定了yes回调，需进行手工关闭
+        }
+    });
+})
+
 function userAdd(fnType, data) {
     if (fnType == 0) {
         return $.ajax({
             type: "POST",
-            url: "/tropical-disease-research/user/add_user",
+            url: host+"/tropical-disease-research/user/add_user",
             data: data,
             success: function(msg) {
 
@@ -83,7 +126,7 @@ function userAdd(fnType, data) {
     } else {
         return $.ajax({
             type: "POST",
-            url: "/tropical-disease-research/user/modify_user",
+            url: host+"/tropical-disease-research/user/modify_user",
             data: data,
             success: function(msg) {
 
@@ -99,7 +142,7 @@ var pages = {
         $.ajax({
             data: { "loginUserId": getCookie('loginUserId') },
             type: "GET",
-            url: '/tropical-disease-research/project/get_project_list',
+            url: host+'/tropical-disease-research/project/get_project_list',
             success: function(msg) {
                 var tmp = { list: JSON.parse(msg.data) }
 
@@ -118,7 +161,7 @@ var pages = {
 
         $.ajax({
             type: "get",
-            url: "/tropical-disease-research/project/get_project_info",
+            url: host+"/tropical-disease-research/project/get_project_info",
             data: _data,
             success: function(msg) {
                 console.log(msg.data)
@@ -148,14 +191,14 @@ var pages = {
 
         $.ajax({
             type: "get",
-            url: "/tropical-disease-research/user/get_user_list",
+            url: host+"/tropical-disease-research/user/get_user_list",
             data: _data,
             success: function(msg) {
                 console.log(msg.data)
                 if (msg.status == 0) {
                     $.ajax({
                         type: "get",
-                        url: "/tropical-disease-research/user/get_user_info",
+                        url: host+"/tropical-disease-research/user/get_user_info",
                         data: { userId: getCookie('loginUserId'), loginUserId: getCookie('loginUserId') },
                         success: function(msg) {
                             console.log(msg.data)
@@ -175,8 +218,8 @@ var pages = {
                                 yes: function(index, layero) {
                                     //do something
                                     var _data = {
-                                        loginUserId:getCookie('loginUserId'),
-                                        userId:getCookie('loginUserId'),
+                                        loginUserId: getCookie('loginUserId'),
+                                        userId: getCookie('loginUserId'),
                                         account: $('#newPlayer').find("[name='account']").val(),
                                         username: $('#newPlayer').find("[name='username']").val(),
                                         password: md5($('#newPlayer').find("[name='password']").val()),
@@ -230,7 +273,7 @@ function deleteInfo(id) {
             'projectId': id
         },
         type: "POST",
-        url: '/tropical-disease-research/project/remove_project/',
+        url: host+'/tropical-disease-research/project/remove_project/',
         success: function(msg) {
 
             layer.alert('删除成功', {
@@ -244,14 +287,14 @@ function deleteInfo(id) {
 
 }
 
-function deleteUser(id){
-     $.ajax({
+function deleteUser(id) {
+    $.ajax({
         data: {
             "loginUserId": getCookie('loginUserId'),
             'userId': id
         },
         type: "POST",
-        url: 'tropical-disease-research/user/remove_user',
+        url: host+'tropical-disease-research/user/remove_user',
         success: function(msg) {
             layer.alert('删除成功', {
                 icon: 1,
@@ -270,7 +313,7 @@ function editInfo(id) {
             'projectId': id
         },
         type: "POST",
-        url: '/tropical-disease-research/project/remove_project/',
+        url: host+'/tropical-disease-research/project/remove_project/',
         success: function(msg) {
 
             layer.alert('删除成功', {
@@ -291,7 +334,7 @@ function addNewInfo(fnType, id) {
         if (fnType == 0) {
             return $.ajax({
                 type: "POST",
-                url: "/tropical-disease-research/project/add_project",
+                url: host+"/tropical-disease-research/project/add_project",
                 data: _data,
                 success: function(msg) {
                     console.log(_data)
@@ -301,7 +344,7 @@ function addNewInfo(fnType, id) {
         } else {
             return $.ajax({
                 type: "POST",
-                url: "/tropical-disease-research/project/modify_project",
+                url: host+"/tropical-disease-research/project/modify_project",
                 data: _data,
                 success: function(msg) {
                     console.log(_data)
@@ -321,7 +364,7 @@ function addNewInfo(fnType, id) {
 
         $.ajax({
             type: "get",
-            url: "/tropical-disease-research/project/get_project_info",
+            url: host+"/tropical-disease-research/project/get_project_info",
             data: _data,
             success: function(msg) {
 

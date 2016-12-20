@@ -38,8 +38,8 @@
                         <a class="blog-nav-item" href="./progress.html">项目进展</a>
                         <a class="blog-nav-item" href="./essay.html">发表文章</a>
                         <a class="blog-nav-item" href="./commumication.html">学术交流</a>
-                        <a class="blog-nav-item" href="#">链接</a>
-                        <div id="loginBtnShell" class="blog-nav-item"></div>
+                        <!-- <a class="blog-nav-item" href="#">链接</a> -->
+                        <div id="loginBtnShell"></div>
                     </nav>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="modal-body">
                 <div class="input-group" id='loginBox'>
                     <span class="input-group-addon">帐号</span>
-                    <input type="text" class="form-control" placeholder="Username" name='account'>
+                    <input type="text" class="form-control" placeholder="请输入用户名" name='account'>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">密码</span>
@@ -75,13 +75,35 @@
 </div>
 <script id="loginBtnTpl" type="text/html">
     {{if loginFlag==1}}
-    <div class=" blog-nav-item btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">登录</div>
+    <div class=" btn btn-primary btn-sm login-btn" data-toggle="modal" data-target="#myModal">登录</div>
     {{else}}
     <a href="./user.html">您好！欢迎回来</a>
     {{/if}}
 </script>
 
 <script id="signInTpl" type="text/html">
+    <div class="modal-body" id='newPlayer'>
+        <div class="input-group">
+            <span class="input-group-addon">姓名</span>
+            <input type="text" class="form-control" placeholder="请输入姓名" name='username' value={{list.username}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">帐号</span>
+            <input type="text" class="form-control" placeholder="请输入帐号" name='account'  value={{list.account}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+        </div>
+          <div class="input-group">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='agaipassword'>
+        </div>
+    </div>
+</script>
+
+
+<script id="loginTpl" type="text/html">
     <div class="modal-body" id='newPlayer'>
         <div class="input-group">
             <span class="input-group-addon">姓名</span>
