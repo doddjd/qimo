@@ -1,0 +1,125 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-2 logo">
+            <img src=__relative("/pics/logo.jpg") height="130">
+        </div>
+        <div class="col-md-10">
+            <p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
+            <div class="row">
+                <div class="col-md-9 eng-title">
+                    <p><b>National Research and Development Plan: Research on Biological Characteristics of the Tropical
+                        Disease Related Invasion vectors and Pathogens</b>
+                        <p>
+                </div>
+                <div class="col-md-3 search-box">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="  search-query form-control" placeholder="搜索" />
+                            <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="blog-masthead">
+            <div class="row">
+                <div class="col-md-11 ">
+                    <nav class="blog-nav">
+                        <a class="blog-nav-item active" href="./index.html">首页</a>
+                        <a class="blog-nav-item" href="./aboutProject.html">关于项目</a>
+                        <a class="blog-nav-item" href="./teams.html">研究团队</a>
+                        <a class="blog-nav-item" href="./progress.html">项目进展</a>
+                        <a class="blog-nav-item" href="./essay.html">发表文章</a>
+                        <a class="blog-nav-item" href="./commumication.html">学术交流</a>
+                        <!-- <a class="blog-nav-item" href="#">链接</a> -->
+                        <div id="loginBtnShell"></div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title" id="myModalLabel">请登录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" id='loginBox'>
+                    <span class="input-group-addon">帐号</span>
+                    <input type="text" class="form-control" placeholder="请输入用户名" name='account'>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id='newer'>注册新用户</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id='loginBtn' data-dismiss="modal">登录</button>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<script id="loginBtnTpl" type="text/html">
+    {{if loginFlag==1}}
+    <div class=" btn btn-primary btn-sm login-btn" data-toggle="modal" data-target="#myModal">登录</div>
+    {{else}}
+    <a href="./user.html">您好！欢迎回来</a>
+    {{/if}}
+</script>
+
+<script id="signInTpl" type="text/html">
+    <div class="modal-body" id='newPlayer'>
+        <div class="input-group">
+            <span class="input-group-addon">姓名</span>
+            <input type="text" class="form-control" placeholder="请输入姓名" name='username' value={{list.username}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">帐号</span>
+            <input type="text" class="form-control" placeholder="请输入帐号" name='account'  value={{list.account}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+        </div>
+          <div class="input-group">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='agaipassword'>
+        </div>
+    </div>
+</script>
+
+
+<script id="loginTpl" type="text/html">
+    <div class="modal-body" id='newPlayer'>
+        <div class="input-group">
+            <span class="input-group-addon">姓名</span>
+            <input type="text" class="form-control" placeholder="请输入姓名" name='username' value={{list.username}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">帐号</span>
+            <input type="text" class="form-control" placeholder="请输入帐号" name='account'  value={{list.account}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+        </div>
+          <div class="input-group">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='agaipassword'>
+        </div>
+    </div>
+</script>

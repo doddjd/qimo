@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel='icon' href='pics/logo.jpg' type='image/x-ico' />
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="bootcss/css/bootstrap.min.css">
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="bootcss/css/bootstrap-theme.min.css">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <div class="col-md-2 logo">
+            <img src="pics/logo.jpg" height="130">
+        </div>
+        <div class="col-md-10">
+            <p class="chn-title"><b>国家重点研发计划——重要热带病传播相关的入侵媒介及其病原体的生物学特性研究</b></p>
+            <div class="row">
+                <div class="col-md-9 eng-title">
+                    <p><b>National Research and Development Plan: Research on Biological Characteristics of the Tropical
+                        Disease Related Invasion vectors and Pathogens</b>
+                        <p>
+                </div>
+                <div class="col-md-3 search-box">
+                    <div id="custom-search-input">
+                        <div class="input-group col-md-12">
+                            <input type="text" class="  search-query form-control" placeholder="搜索" />
+                            <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class=" glyphicon glyphicon-search"></span>
+                            </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="blog-masthead">
+            <div class="row">
+                <div class="col-md-11 ">
+                    <nav class="blog-nav">
+                        <a class="blog-nav-item active" href="./index.html">首页</a>
+                        <a class="blog-nav-item" href="./aboutProject.html">关于项目</a>
+                        <a class="blog-nav-item" href="./teams.html">研究团队</a>
+                        <a class="blog-nav-item" href="./progress.html">项目进展</a>
+                        <a class="blog-nav-item" href="./essay.html">发表文章</a>
+                        <a class="blog-nav-item" href="./commumication.html">学术交流</a>
+                        <!-- <a class="blog-nav-item" href="#">链接</a> -->
+                        <div id="loginBtnShell"></div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                <h4 class="modal-title" id="myModalLabel">请登录</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group" id='loginBox'>
+                    <span class="input-group-addon">帐号</span>
+                    <input type="text" class="form-control" placeholder="请输入用户名" name='account'>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">密码</span>
+                    <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id='newer'>注册新用户</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id='loginBtn' data-dismiss="modal">登录</button>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<script id="loginBtnTpl" type="text/html">
+    {{if loginFlag==1}}
+    <div class=" btn btn-primary btn-sm login-btn" data-toggle="modal" data-target="#myModal">登录</div>
+    {{else}}
+    <a href="./user.html">您好！欢迎回来</a>
+    {{/if}}
+</script>
+
+<script id="signInTpl" type="text/html">
+    <div class="modal-body" id='newPlayer'>
+        <div class="input-group">
+            <span class="input-group-addon">姓名</span>
+            <input type="text" class="form-control" placeholder="请输入姓名" name='username' value={{list.username}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">帐号</span>
+            <input type="text" class="form-control" placeholder="请输入帐号" name='account'  value={{list.account}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+        </div>
+          <div class="input-group">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='agaipassword'>
+        </div>
+    </div>
+</script>
+
+
+<script id="loginTpl" type="text/html">
+    <div class="modal-body" id='newPlayer'>
+        <div class="input-group">
+            <span class="input-group-addon">姓名</span>
+            <input type="text" class="form-control" placeholder="请输入姓名" name='username' value={{list.username}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">帐号</span>
+            <input type="text" class="form-control" placeholder="请输入帐号" name='account'  value={{list.account}}>
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='password'>
+        </div>
+          <div class="input-group">
+            <span class="input-group-addon">确认密码</span>
+            <input type="password" class="form-control" placeholder="请输入密码" name='agaipassword'>
+        </div>
+    </div>
+</script>
+
+    <div class="container project-cont">
+        <div class="row">
+            <div class="sidebar col-sm-4 ">
+                <div class="row">
+                    <div class="col-sm-11 col-sm-offset-1">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">项目进展</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="project-panel-ul">
+                                    <li class="team-tree-1">
+                                        <h4 class="title">主要负责团队</h4>
+                                        <a class="member">王烜文</a>
+                                        <a class="member">刘昊</a>
+                                        <a class="member">朱会东</a>
+                                        <a class="member">黎亮</a>
+                                    </li>
+                                    <li class="team-tree-1">
+                                        <h4 class="title">参与团队</h4>
+                                        <div class="team-tree-2">
+                                            <h4 class="title">中山大学</h4>
+                                            <a class="member">刘鎏琪</a>
+                                            <a class="member">邓永舫</a>
+                                        </div>
+                                        <div class="team-tree-2">
+                                            <h4 class="title">复旦大学</h4>
+                                            <a class="member">孙霏鸿</a>
+                                            <a class="member">高颐恺</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.panel-success -->
+                    </div>
+                    <!-- col-sm-11 col-sm-offset-1 -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /.sidebar -->
+            <div class="col-sm-8 project-introduction">
+                <div class="normal-part">
+                    <h4 class="normal-title">团队简介</h4>
+                    <p class="normal-p">
+                        现代生命科学的研究日新月异，新技术新方法层出不穷。在植物学领域，为应对食物，能源，健康以及环境和资源方面挑战，新的科研成果正在不断更新我们对植物生命活动规律的认识，更加有利于我们开发，利用和保护地球的植物资源。 植物的形态变化，生理现象和病虫抵御是对环境变化的进化适应，其内在包含一系列的信号传导，基因表达，反馈调节以及代谢反应等分子事件，其关键则赖于各种特定功能蛋白分子在特定的时间，空间的顺序表达以及它们之间的相互作用。所有的分子事件都在细胞内特定的区隔内进行，其结果就是细胞的分裂分化，生长成熟，衰老自亡。 作为是从事细胞与基因工程基础理论和应用研究以及相关人才培养的基地，分子细胞生物学实验室应用现代最新的技术手段去探究生命现象从分子，细胞到个体乃至群体多重层面的网络调控机制。与此同时，充分利用生物信息时代的大量生物学数据库及算法模型，开展在系统整合生物学这一现代新兴学科领域的研究。因此，分子细胞与系统生物学中心将面向21世纪生命科学的发展趋势，以赶超生命科学国际发展前沿，探索与解决国家和福建省经济社会发展面临的重大科学技术问题为目标开展工作。 目前分子细胞与系统生物学中心的主要研究方向包括：植物组学研究、植物细胞信号传导，细胞与基因工程药物与产品的开发及其产业化以及系统生物学手段的应用。 中心除了承担本科生创新科研项目，将拟承担国家“973”重大基础研究计划、 国家自然科学基金重点项目、 国家自然科学基金和各类省部级项目、企业合作项目等。我们还与浙江大学，厦门大学，中科院上海生理和生态研究所，德国基尔大学，德国蒂宾根大学，国立台湾大学等存在直接课题合作。
+                    </p>
+                </div>
+                <div class="normal-part">
+                    <h4 class="normal-title">研究方向</h4>
+                    <p class="normal-p">
+                        一 分子细胞生物学 1. 植物衰老与细胞死亡的分子机理 2. 逆向信号传导在植物生长发育中的分子调控 3. 园艺作物（油菜、竹子和花卉）生长发育的分子生物学研究 4. 双诱导重组无标记基因编辑体系在作物分子育种中的应用 二 细胞生物工程 1. 海洋生物活性肽及其生物工程技术 2. 细胞工程标记筛选技术 3. 植物生物技术在中草药性状品质改良的应用研究。
+                    </p>
+                    <img class="col-sm-11 col-sm-offset-1 normal-img" src="pics/team1.jpg">
+                </div>
+                <div class="normal-part">
+                    <h4 class="normal-title">课题任务</h4>
+                    <p class="normal-p">
+                        1、植物组学研究 （1）模式植物拟南芥细胞器转录组与蛋白组的研究； （2）园艺作物如果树、蔬菜与花卉的特别农艺性状的转录组、蛋白组的研究。 2、植物细胞信号传导研究 （1） 双定位转录因子在植物发育中的细胞功能研究； （2） 叶绿体和线粒体作为环境信号的感受体通过逆行信号( retrograde signalling )调控植物衰老和细胞程序性死亡研究。 3、细胞与基因工程药物的研制开发与产业化 围绕福建省建设生物医药大省的发展目标，重点在细胞与基因工程领域开展新药（生物制剂）的研制开发和新的生态环保型转基因产品的开发。内容包括： （1）海洋生物药物资源研究开发与细胞工程 和德国基尔大学药物研究所合作利用海洋细菌，培养提取抗癌药物的研究和可能的产业化； （2）重要生物物质和代谢物的提取与分析； （3）植物生态环保型基因编辑体系的建立与应用。 主要着眼于我省特色园艺作物，蔬菜和花卉品种的多元化和特色品系的培养与开发，生态环保型基因编辑系统的应用将开辟国内生态环保型分子育种的新理念，社会和生态效益不可估量。 4、 系统生物学手段的应用 基于转录组，蛋白组，代谢组以及表型组的系统生物学分析结果，进行福建特色作物特异性状的分子育种及其分子种质库的建立。
+                        <a href="#" class="normal-a-link">查看更多</a>
+                    </p>
+                    <img class="col-sm-11 col-sm-offset-1 normal-img" src="pics/team2.jpg">
+                </div>
+                <div class="normal-part">
+                    <h4 class="normal-title">项目组发表的文章</h4>
+                    <p class="normal-p">
+                        <a href="#" class="normal-a-link">查看更多</a>
+                    </p>
+                </div>
+                <div class="normal-part">
+                    <h4 class="normal-title">相关文章</h4>
+                    <ul>
+                        <li>
+                            项目组发表的文章
+                            <a href="#" class="normal-a-link">查看更多</a>
+                        </li>
+                        <li>
+                            项目组发表的文章
+                            <a href="#" class="normal-a-link">查看更多</a>
+                        </li>
+                        <li>
+                            项目组发表的文章
+                            <a href="#" class="normal-a-link">查看更多</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="normal-a-link">查看更多</a>
+                </div>
+            </div>
+        </div>
+        <!-- /row -->
+        <hr>
+    </div>
+    <!-- /container -->
+    <footer class="footer">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="col-sm-7 project-introduction">
+                <p><b>相关链接</b></p>
+                <p><a href="http://zssom.sysu.edu.cn/">中山大学中山医学院</a></p>
+                <p><a href="http://www.ipd.org.cn/">中国疾病预防控制中心寄生虫病预防控制所</a></p>
+                <p><a href="http://life.fudan.edu.cn/ ">复旦大学生命科学学院</a></p>
+                <p><a href="http://www.ipd.org.cn/">南方医科大学公共卫生与热带医学学院</a></p>
+            </div>
+            <div class="col-sm-5">
+                <p><b>资源共享</b></p>
+                <p><a href="http://www.chinaias.cn/wjPart/index.aspx ">中国外来入侵物种数据库</a></p>
+                <p><a href="http://www.iucngisd.org/gisd/">全球入侵物种数据库GISD</a></p>
+                <p><a href="https://www.vectorbase.org/">人类病原体无脊椎动物媒介生物信息资源数据库（VectorBase）</a></p>
+            </div>
+        </div>
+        <div class="col-sm-3 col-sm-offset-1">
+            <div class=" QRcode-reminder">
+                <p>请关注我们的公众号：</p>
+            </div>
+            <!-- <div class="col-sm-4"> -->
+            <img src="pics/QRcode.png" height="105">
+            <!-- </div> -->
+        </div>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <p>Copyright &copy; 2016 <a href="http://www.sysu.edu.cn/2012/cn/index.htm">中山大学</a> &nbsp&nbsp&nbsp
+            联系我sss们：<a href="mailto:wuzhd@mail2.sysu.edu.cn">wuzhd@mail2.sysu.edu.cn</a></p>
+        <p>地址：中国广州市中山二路74号中山大学北校区（邮政编码：510080）</p>
+    </div>
+</footer>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src=./js/jquery-3.1.1.min.js></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src=./bootcss/js/bootstrap.min.js></script>
+<script type="text/javascript" src=./js/arttemplate.js></script>
+<script type="text/javascript" src=./js/layer.js></script>
+<script type="text/javascript" src=./js/md5.min.js></script>
+<script type="text/javascript" src=./js/main.js></script>
+
+
+</body>
+
+</html>
