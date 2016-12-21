@@ -337,3 +337,6 @@ a {
 .project-introduction table {
   font-size: 15px;
 }
+#loginBtnShell a {
+  color: #e0e0e0;
+}

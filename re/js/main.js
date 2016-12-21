@@ -1,9 +1,9 @@
-// var host='http://'+document.location.host||'192.168.1.103'
-var host='http://192.168.1.103:8080'
+var host = 'http://' + document.location.host
+    // var host='http://192.168.1.103:8080'
 $(function($) {
 
+    // alert(11)
 
-   
     var data = {
         loginFlag: getCookie('loginUserId') ? 0 : 1,
         list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
@@ -56,7 +56,7 @@ $(function($) {
 
         $.ajax({
             type: "POST",
-            url: host+"/tropical-disease-research/user/login",
+            url: host + "/tropical-disease-research/user/login",
             data: data,
             success: function(msg) {
                 if (msg.status == 1) {
@@ -75,8 +75,6 @@ $('.login-btn').click(function() {
     var _data = ''
     var html = template('loginTpl', _data);
 
-
-
     layer.open({
         type: 1,
         skin: 'layui-layer-rim', //加上边框
@@ -92,7 +90,7 @@ $('.login-btn').click(function() {
 
             $.ajax({
                 type: "POST",
-                url: host+"/tropical-disease-research/user/login",
+                url: host + "/tropical-disease-research/user/login",
                 data: data,
                 success: function(msg) {
                     if (msg.status == 1) {
@@ -104,7 +102,7 @@ $('.login-btn').click(function() {
                 }
             });
 
-        
+
         },
         no: function(index, layero) {
             //do something
@@ -117,7 +115,7 @@ function userAdd(fnType, data) {
     if (fnType == 0) {
         return $.ajax({
             type: "POST",
-            url: host+"/tropical-disease-research/user/add_user",
+            url: host + "/tropical-disease-research/user/add_user",
             data: data,
             success: function(msg) {
 
@@ -126,7 +124,7 @@ function userAdd(fnType, data) {
     } else {
         return $.ajax({
             type: "POST",
-            url: host+"/tropical-disease-research/user/modify_user",
+            url: host + "/tropical-disease-research/user/modify_user",
             data: data,
             success: function(msg) {
 
@@ -142,7 +140,7 @@ var pages = {
         $.ajax({
             data: { "loginUserId": getCookie('loginUserId') },
             type: "GET",
-            url: host+'/tropical-disease-research/project/get_project_list',
+            url: host + '/tropical-disease-research/project/get_project_list',
             success: function(msg) {
                 var tmp = { list: JSON.parse(msg.data) }
 
@@ -154,17 +152,24 @@ var pages = {
 
     },
     'aboutProject': function() {
+        var params = parseURL(location.href)
+        var id=206
+        console.log(params)
+        if(params.params.id){
+            // alert(1)
+            id=params.params.id
+        }
         var _data = {
-            projectId: 206,
+            projectId: id,
             loginUserId: getCookie('loginUserId')
         }
 
         $.ajax({
             type: "get",
-            url: host+"/tropical-disease-research/project/get_project_info",
+            url: host + "/tropical-disease-research/project/get_project_info",
             data: _data,
             success: function(msg) {
-                console.log(msg.data)
+                // console.log(msg.data)
 
                 var tmp = { list: JSON.parse(msg.data) }
                 console.log(tmp)
@@ -191,14 +196,14 @@ var pages = {
 
         $.ajax({
             type: "get",
-            url: host+"/tropical-disease-research/user/get_user_list",
+            url: host + "/tropical-disease-research/user/get_user_list",
             data: _data,
             success: function(msg) {
                 console.log(msg.data)
                 if (msg.status == 0) {
                     $.ajax({
                         type: "get",
-                        url: host+"/tropical-disease-research/user/get_user_info",
+                        url: host + "/tropical-disease-research/user/get_user_info",
                         data: { userId: getCookie('loginUserId'), loginUserId: getCookie('loginUserId') },
                         success: function(msg) {
                             console.log(msg.data)
@@ -273,7 +278,7 @@ function deleteInfo(id) {
             'projectId': id
         },
         type: "POST",
-        url: host+'/tropical-disease-research/project/remove_project/',
+        url: host + '/tropical-disease-research/project/remove_project/',
         success: function(msg) {
 
             layer.alert('删除成功', {
@@ -294,7 +299,7 @@ function deleteUser(id) {
             'userId': id
         },
         type: "POST",
-        url: host+'tropical-disease-research/user/remove_user',
+        url: host + 'tropical-disease-research/user/remove_user',
         success: function(msg) {
             layer.alert('删除成功', {
                 icon: 1,
@@ -313,7 +318,7 @@ function editInfo(id) {
             'projectId': id
         },
         type: "POST",
-        url: host+'/tropical-disease-research/project/remove_project/',
+        url: host + '/tropical-disease-research/project/remove_project/',
         success: function(msg) {
 
             layer.alert('删除成功', {
@@ -334,7 +339,7 @@ function addNewInfo(fnType, id) {
         if (fnType == 0) {
             return $.ajax({
                 type: "POST",
-                url: host+"/tropical-disease-research/project/add_project",
+                url: host + "/tropical-disease-research/project/add_project",
                 data: _data,
                 success: function(msg) {
                     console.log(_data)
@@ -344,7 +349,7 @@ function addNewInfo(fnType, id) {
         } else {
             return $.ajax({
                 type: "POST",
-                url: host+"/tropical-disease-research/project/modify_project",
+                url: host + "/tropical-disease-research/project/modify_project",
                 data: _data,
                 success: function(msg) {
                     console.log(_data)
@@ -364,7 +369,7 @@ function addNewInfo(fnType, id) {
 
         $.ajax({
             type: "get",
-            url: host+"/tropical-disease-research/project/get_project_info",
+            url: host + "/tropical-disease-research/project/get_project_info",
             data: _data,
             success: function(msg) {
 
@@ -449,10 +454,6 @@ function addNewInfo(fnType, id) {
         });
     }
 
-
-
-
-
 }
 
 
@@ -511,4 +512,40 @@ function removeCookie(sKey, sPath, sDomain) {
         }
     }
 
+}
+
+function parseURL(url) {
+    var a = document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':', ''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function() {
+            var ret = {},
+                seg = a.search.replace(/^\?/, '').split('&'),
+                len = seg.length,
+                i = 0,
+                s;
+
+            for (; i < len; i++) {
+                if (!seg[i]) {
+                    continue;
+                }
+                var index = seg[i].indexOf('=')
+                var key = seg[i].substring(0, index)
+                var val = seg[i].substring(index + 1)
+                s = seg[i].split('=');
+                ret[key] = val;
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [, ''])[1],
+        hash: a.hash.replace('#', ''),
+        path: a.pathname.replace(/^([^\/])/, '/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [, ''])[1],
+        segments: a.pathname.replace(/^\//, '').split('/')
+    };
 }
